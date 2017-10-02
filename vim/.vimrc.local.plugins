@@ -1,0 +1,3 @@
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ryanoasis/vim-devicons'
