@@ -9,12 +9,14 @@ export PATH=$PATH:$ANT_HOME/bin
 
 ssh-add ~/.ssh/id_rsa > /dev/null
 
+export DEFAULT_USER=haydenerickson
+
 export DRONE_SERVER="https://drone.apps-np.homedepot.com"
 export DRONE_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoiaHJlNjM0NSIsInR5cGUiOiJ1c2VyIn0.SX2tT6hlzu6NUY1LP5o5FZVAEpjRs6oxCORPdIck3UI"
 
 bindkey -v
 
-source ~/.shell_prompt.sh
+# source ~/dotfiles/zsh/.shell_prompt.sh
 
 ptop() {
   # pgrep $1 find pid of first argument

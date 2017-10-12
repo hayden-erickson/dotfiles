@@ -2,10 +2,14 @@
 let g:airline_extensions = ['branch', 'netrw', 'ale','tabline']
 let g:airline_powerline_fonts = 1
 
-let g:airline_left_sep = "\uE0B4"
-let g:airline_left_alt_sep = "\uE0B5"
-let g:airline_right_sep = "\uE0B6"
-let g:airline_right_alt_sep = "\uE0B7"
+" let g:airline_left_sep = "\uE0B4"
+" let g:airline_left_alt_sep = "\uE0B5"
+" let g:airline_right_sep = "\uE0B6"
+" let g:airline_right_alt_sep = "\uE0B7"
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
@@ -16,7 +20,7 @@ let g:promptline_preset = {
         \'b' : [ promptline#slices#vcs_branch() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME."/.snips.local"]
+let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME."/dotfiles/vim/.snips.local"]
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}

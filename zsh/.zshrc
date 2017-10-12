@@ -5,11 +5,11 @@ export ZSH=/Users/haydenerickson/.zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+ZSH_THEME="hayden"
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 setopt nosharehistory
 setopt noincappendhistory
-
-ZSH_THEME="robbyrussell"
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -61,7 +61,7 @@ plugins=(git)
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+source ~/dotfiles/zsh/oh-my-zsh/oh-my-zsh.sh
 source ~/dotfiles/zsh/profile.sh
 source ~/dotfiles/zsh/aliases.sh
 source ~/dotfiles/zsh/pcf/index.sh

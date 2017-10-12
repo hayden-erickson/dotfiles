@@ -47,7 +47,7 @@ function __promptline_vcs_branch {
   return 1
 }
 function __promptline_cwd {
-  local dir_limit="3"
+  local dir_limit="2"
   local truncation="⋯"
   local first_char
   local part_count=0
@@ -131,12 +131,12 @@ function __promptline {
   local alt_rsep=""
   local reset="${wrap}0${end_wrap}"
   local reset_bg="${wrap}49${end_wrap}"
-  local a_fg="${wrap}38;5;0${end_wrap}"
-  local a_bg="${wrap}48;5;0${end_wrap}"
-  local a_sep_fg="${wrap}38;5;0${end_wrap}"
-  local b_fg="${wrap}38;5;0${end_wrap}"
-  local b_bg="${wrap}48;5;0${end_wrap}"
-  local b_sep_fg="${wrap}38;5;0${end_wrap}"
+  local a_fg="${wrap}38;5;234${end_wrap}"
+  local a_bg="${wrap}48;5;110${end_wrap}"
+  local a_sep_fg="${wrap}38;5;110${end_wrap}"
+  local b_fg="${wrap}38;5;250${end_wrap}"
+  local b_bg="${wrap}48;5;237${end_wrap}"
+  local b_sep_fg="${wrap}38;5;237${end_wrap}"
   local warn_fg="${wrap}38;5;232${end_wrap}"
   local warn_bg="${wrap}48;5;166${end_wrap}"
   local warn_sep_fg="${wrap}38;5;166${end_wrap}"

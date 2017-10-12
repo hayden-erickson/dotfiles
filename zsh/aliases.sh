@@ -1,3 +1,5 @@
+alias la='ls -la'
+alias ll='ls -l'
 alias ls='ls -G'
 alias cfat="CF_HOME=~/.cf/at cf"
 alias cfnp="CF_HOME=~/.cf/np cf"
@@ -6,6 +8,8 @@ alias cfzb="CF_HOME=~/.cf/zb cf"
 alias cfps="CF_HOME=~/.cf/ps cf"
 alias cfpa="CF_HOME=~/.cf/pa cf"
 alias cfgnp="CF_HOME=~/.cf/gnp cf"
+
+alias nv="nvim"
 
 
 alias g='git'
