@@ -1,5 +1,5 @@
 
-let g:airline_extensions = ['branch', 'netrw', 'ale','tabline']
+let g:airline_extensions = ['tmuxline', 'branch', 'netrw', 'ale','tabline']
 let g:airline_powerline_fonts = 1
 
 " let g:airline_left_sep = "\uE0B4"
@@ -15,9 +15,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
+let g:airline_theme = "badwolf"
+
 let g:promptline_preset = {
-        \'a' : [ promptline#slices#cwd() ],
-        \'b' : [ promptline#slices#vcs_branch() ],
+        \'a' : [ promptline#slices#vcs_branch() ],
+        \'b' : [ promptline#slices#cwd() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME."/dotfiles/vim/.snips.local"]
@@ -27,3 +29,5 @@ if !exists('g:airline_symbols')
 endif
 
 let g:airline_symbols.space = "\ua0"
+
+let g:clang_library_path = "/usr/local/opt/llvm/lib"

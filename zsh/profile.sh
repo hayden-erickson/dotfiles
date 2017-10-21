@@ -1,6 +1,7 @@
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$(yarn global bin):$PATH
+export TMPDIR=/tmp
 export ANDROID_HOME=~/Library/Android/sdk/
 export TMUX_TMPDIR=/Users/haydenerickson/tmate-sessions
 export TMATE=$TMUX_TMPDIR
@@ -16,7 +17,7 @@ export DRONE_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZXh0IjoiaHJlNjM0NSI
 
 bindkey -v
 
-# source ~/dotfiles/zsh/.shell_prompt.sh
+source ~/dotfiles/zsh/.shell_prompt.sh
 
 ptop() {
   # pgrep $1 find pid of first argument

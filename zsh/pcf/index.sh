@@ -1,22 +1,15 @@
-function encodePlatformLCP () {
-  if [[ $1 == "ps" || $a == "pa" ]]
-  then
-    echo $1
-  fi
-  echo "-$1"
-}
-
-function encodeOpsManLCP() {
-  if [[ $1 == "za" || $1 == "zb" ]]; then; 
-    echo "-pr-$1"
-    return
-  fi
-  echo "-$1"
-}
+PLATFORMS=("run-np" "run-zb" "run-za" "run-at")
 
 function cf-login() {
-  url="api.run$(encodePlatformLCP $1).homedepot.com"
-  CF_HOME=~/.cf/$1 cf login -a $url -u hre6345
+  echo "ldap> "
+  read CF_USERNAME
+  echo "password> "
+  read -s CF_PASSWORD
+
+  for p in ${PLATFORMS[*]}; do
+    echo $p
+    CF_HOME=~/.cf/$p cf login -a "api.$p.homedepot.com" -u $CF_USERNAME -p $CF_PASSWORD
+  done
 }
 
 function pci-ssh() {

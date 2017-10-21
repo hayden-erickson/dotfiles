@@ -5,7 +5,7 @@ export ZSH=/Users/haydenerickson/.zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="hayden"
+ZSH_THEME="agnoster"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 setopt nosharehistory
