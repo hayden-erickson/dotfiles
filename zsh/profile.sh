@@ -53,4 +53,21 @@ vcapp() {
   eval $(VCAP_SERVICES="$(cf curl "/v2/apps/$(cf app $1 --guid)/env" | jq '.system_env_json.VCAP_SERVICES' )" vcap-squash)
 }
 
+function pimssh() {
+	pim_host='pimssh'
+	ssh_user=''
+	ssh_host=''
+
+  echo "============ use RSA token as password ============"
+	while getopts 'qh:u:' flag; do
+		case "${flag}" in
+			q) pim_host='pimssh-qa';;
+			h) ssh_host=${OPTARG};;
+			u) ssh_user=${OPTARG};;
+		esac
+	done
+
+  ssh hre6345@$ssh_user@$ssh_host@$pim_host.homedepot.com
+}
+
 export -f ptop tm dap vcapp > /dev/null

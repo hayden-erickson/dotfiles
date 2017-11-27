@@ -1,20 +1,47 @@
-PLATFORMS=("run-np" "run-zb" "run-za" "run-at")
+PLATFORMS=('run-np' 'run-zb' 'run-za' 'run-at' 'runps' 'runpa')
+
+alias cfat="CF_HOME=~/.cf/run-at cf"
+alias cfnp="CF_HOME=~/.cf/run-np cf"
+alias cfza="CF_HOME=~/.cf/run-za cf"
+alias cfzb="CF_HOME=~/.cf/run-zb cf"
+alias cfps="CF_HOME=~/.cf/runps cf"
+alias cfpa="CF_HOME=~/.cf/runpa cf"
+alias cfgnp="CF_HOME=~/.cf/gnp cf"
 
 function cf-login() {
-  echo "ldap> "
-  read CF_USERNAME
-  echo "password> "
-  read -s CF_PASSWORD
+  CF_USERNAME=$(security find-generic-password -a ${USER} -s CF_USER -w )
+  CF_PASSWORD=$(security find-generic-password -a ${USER} -s CF_PASS -w )
 
-  for p in ${PLATFORMS[*]}; do
+
+  if [[ $CF_USERNAME == '' ]]; then
+    printf "user > "
+    read CF_USERNAME
+    printf "pass > "
+    read -s CF_PASSWORD
+
+    printf "\nwould you like to add your cf cli credentials to the keychain? (y/n) "
+    read CONSENT
+
+    if [[ $CONSENT == 'y' ]]; then
+      security add-generic-password -a ${USER} -s CF_USER -w $CF_USERNAME
+      security add-generic-password -a ${USER} -s CF_PASS -w $CF_PASSWORD
+    fi
+  fi
+
+  for p in $PLATFORMS; do
     echo $p
-    CF_HOME=~/.cf/$p cf login -a "api.$p.homedepot.com" -u $CF_USERNAME -p $CF_PASSWORD
+    mkdir -p ~/.cf/$p
+    CF_HOME=~/.cf/$p cf api "api.$p.homedepot.com"
+    CF_HOME=~/.cf/$p cf auth $CF_USERNAME $CF_PASSWORD
   done
 }
 
-function pci-ssh() {
-  echo "============ use RSA token as password ============"
-  ssh hre6345@ubuntu@pcfopsmanager-pr-pci-$1.homedepot.com@pimssh.homedepot.com
+function cf-all-target() {
+  for p in ${PLATFORMS[*]}; do
+    CF_HOME=~/.cf/$p cf target $@
+  done
 }
 
-export -f cf-login bosh-ssh > /dev/null
+. ~/dotfiles/zsh/pcf/search-user.sh
+
+export -f cf-all-target cf-login > /dev/null

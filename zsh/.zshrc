@@ -65,6 +65,7 @@ source ~/dotfiles/zsh/oh-my-zsh/oh-my-zsh.sh
 source ~/dotfiles/zsh/profile.sh
 source ~/dotfiles/zsh/aliases.sh
 source ~/dotfiles/zsh/pcf/index.sh
+source ~/dotfiles/zsh/pcf/search-user.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

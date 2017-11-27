@@ -18,8 +18,8 @@ let g:airline_symbols.maxlinenr = ''
 let g:airline_theme = "badwolf"
 
 let g:promptline_preset = {
-        \'a' : [ promptline#slices#vcs_branch() ],
         \'b' : [ promptline#slices#cwd() ],
+        \'x' : [ promptline#slices#vcs_branch() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME."/dotfiles/vim/.snips.local"]
