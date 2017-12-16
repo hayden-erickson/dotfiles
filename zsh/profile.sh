@@ -3,8 +3,6 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$(yarn global bin):$PATH
 export TMPDIR=/tmp
 export ANDROID_HOME=~/Library/Android/sdk/
-export TMUX_TMPDIR=/Users/haydenerickson/tmate-sessions
-export TMATE=$TMUX_TMPDIR
 export ANT_HOME=/opt/ant
 export PATH=$PATH:$ANT_HOME/bin
 
@@ -44,30 +42,4 @@ tm() {
   fi
 }
 
-dap() {
-  curl http://dapper.apps.homedepot.com/users/$1 | jq '.name, .title, .direct_reports'
-}
-
-
-vcapp() {
-  eval $(VCAP_SERVICES="$(cf curl "/v2/apps/$(cf app $1 --guid)/env" | jq '.system_env_json.VCAP_SERVICES' )" vcap-squash)
-}
-
-function pimssh() {
-	pim_host='pimssh'
-	ssh_user=''
-	ssh_host=''
-
-  echo "============ use RSA token as password ============"
-	while getopts 'qh:u:' flag; do
-		case "${flag}" in
-			q) pim_host='pimssh-qa';;
-			h) ssh_host=${OPTARG};;
-			u) ssh_user=${OPTARG};;
-		esac
-	done
-
-  ssh hre6345@$ssh_user@$ssh_host@$pim_host.homedepot.com
-}
-
-export -f ptop tm dap vcapp > /dev/null
+export FUNCTIONS=$(declare -pf)

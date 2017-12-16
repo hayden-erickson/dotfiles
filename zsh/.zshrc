@@ -5,7 +5,6 @@ export ZSH=/Users/haydenerickson/.zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 setopt nosharehistory
@@ -61,11 +60,9 @@ plugins=(git)
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source ~/dotfiles/zsh/oh-my-zsh/oh-my-zsh.sh
+# source ~/dotfiles/zsh/oh-my-zsh/oh-my-zsh.sh
 source ~/dotfiles/zsh/profile.sh
 source ~/dotfiles/zsh/aliases.sh
-source ~/dotfiles/zsh/pcf/index.sh
-source ~/dotfiles/zsh/pcf/search-user.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
