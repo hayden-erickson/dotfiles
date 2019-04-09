@@ -1,10 +1,3 @@
-alias la='ls -la'
-alias ll='ls -l'
-alias ls='ls -G'
-
-alias vi="nvim"
-
-
 alias g='git'
 alias ga='git add'
 alias gp='git push'
@@ -15,6 +8,3 @@ alias gco='git checkout'
 alias glog='git log --graph --oneline'
 
 alias update-all='brew update && brew upgrade && brew cleanup && vim-update'
-
-
-alias opsman-np='ssh ubuntu@pcfopsmanager-np.homedepot.com'
