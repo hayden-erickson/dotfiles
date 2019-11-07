@@ -1,2 +1,7 @@
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'vim-syntastic/syntastic'
+Plug 'rafalbromirski/vim-aurora'
+Plug 'ternjs/tern_for_vim'
+Plug 'jremmen/vim-ripgrep'

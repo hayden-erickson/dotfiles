@@ -4,6 +4,24 @@ if ${1:$2 := $3; }${2:err} != nil {
 }
 endsnippet
 
+snippet tfun "go test func"
+func(t *testing.T) {
+	$1${VISUAL}
+}
+endsnippet
+
+snippet test "test a function"
+func Test${1:SomeFunction}(t *testing.T) {
+	$2${VISUAL}
+}
+endsnippet
+
+snippet trun "test sub block"
+${1:t.}Run("${2:Given something}", func(t *testing.T) {
+	$3${VISUAL}
+})
+endsnippet
+
 snippet some "stuff"
 // make some funny comments
 endsnippet

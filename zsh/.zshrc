@@ -1,11 +1,17 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/haydenerickson/.zsh/oh-my-zsh
+export ANDROID_HOME=/Users/haydenerickson/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-fpath=(/usr/local/share/zsh-completions $fpath)
+ZSH_THEME="robbyrussell"
+# fpath=(/usr/local/share/zsh-completions $fpath)
 
 setopt nosharehistory
 setopt noincappendhistory
@@ -60,7 +66,7 @@ plugins=(git)
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# source ~/dotfiles/zsh/oh-my-zsh/oh-my-zsh.sh
+source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
 source ~/dotfiles/zsh/profile.sh
 source ~/dotfiles/zsh/aliases.sh
 
@@ -93,3 +99,4 @@ source ~/dotfiles/zsh/aliases.sh
 
 set -o vi
 
+eval "$(direnv hook zsh)"

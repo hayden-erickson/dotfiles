@@ -1,0 +1,15 @@
+snippet desc "jest describe  block"
+describe('${1:something}', () => {
+	${2}${VISUAL}
+})
+endsnippet
+
+snippet it "jest it block"
+it('${1:does something}', () => {
+	${2}${VISUAL}
+})
+endsnippet
+
+snippet exp "jest expectation block"
+expect(${1}${VISUAL}).${2:toEqual}(${3})
+endsnippet

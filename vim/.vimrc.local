@@ -1,3 +1,4 @@
+set clipboard+=unnamedplus
 
 let g:airline_extensions = ['tmuxline', 'branch', 'netrw', 'ale','tabline']
 let g:airline_powerline_fonts = 1
@@ -22,7 +23,8 @@ let g:promptline_preset = {
         \'x' : [ promptline#slices#vcs_branch() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
-let g:UltiSnipsSnippetDirectories=["UltiSnips", $HOME."/dotfiles/vim/.snips.local"]
+let g:UltiSnipsSnippetDirectories = ["/Users/haydenerickson/dotfiles/vim/.snips.local"]
+
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -30,4 +32,27 @@ endif
 
 let g:airline_symbols.space = "\ua0"
 
-let g:clang_library_path = "/usr/local/opt/llvm/lib"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set foldmethod=indent
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_typescript_checkers = ["tslint"]
+let g:syntastic_typescript_tslint_config = '~/samsara-dev/backend/tslint.json'
+let g:syntastic_typescript_tslint_project = '~/samsara-dev/backend/tsconfig.json'
+
+
+" configure autoformat to use vim-prettier on .ts[x] and .js[x] files
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+colorscheme hybrid
+
+
+:nnoremap <leader>a :FZFAg<cr>
+:let $FZF_DEFAULT_COMMAND='ag -U -g ""'
