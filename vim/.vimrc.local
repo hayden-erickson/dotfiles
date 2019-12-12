@@ -43,13 +43,14 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_typescript_checkers = ["tslint"]
-let g:syntastic_typescript_tslint_config = '~/samsara-dev/backend/tslint.json'
-let g:syntastic_typescript_tslint_project = '~/samsara-dev/backend/tsconfig.json'
+let g:syntastic_typescript_tslint_config = '/Users/haydenerickson/samsara-dev/backend/tslint.json'
+let g:syntastic_typescript_tslint_project = '/Users/haydenerickson/samsara-dev/backend/tsconfig.json'
 
 
 " configure autoformat to use vim-prettier on .ts[x] and .js[x] files
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+au BufRead,BufNewFile *.tsx set syntax=typescript
 
 colorscheme hybrid
 
