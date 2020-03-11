@@ -7,3 +7,4 @@ Plug 'ternjs/tern_for_vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}

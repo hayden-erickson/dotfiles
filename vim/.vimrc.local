@@ -23,7 +23,8 @@ let g:promptline_preset = {
         \'x' : [ promptline#slices#vcs_branch() ],
         \'warn' : [ promptline#slices#last_exit_code() ]}
 
-let g:UltiSnipsSnippetDirectories = ["/Users/haydenerickson/dotfiles/vim/.snips.local"]
+let g:UltiSnipsSnippetDirectories = ["~/dotfiles/vim/.snips.local"]
+let g:UltiSnipsExpandTrigger="<c-f>"
 
 
 if !exists('g:airline_symbols')
@@ -50,10 +51,13 @@ let g:syntastic_typescript_tslint_project = '/Users/haydenerickson/samsara-dev/b
 " configure autoformat to use vim-prettier on .ts[x] and .js[x] files
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-au BufRead,BufNewFile *.tsx set syntax=typescript
+au BufRead,BufNewFile *.tsx set syntax=typescript.tsx
 
 colorscheme hybrid
 
 
-:nnoremap <leader>a :FZFAg<cr>
 :let $FZF_DEFAULT_COMMAND='ag -U -g ""'
+
+let g:go_test_timeout= '20s'
+
+source ~/dotfiles/vim/coc.vim

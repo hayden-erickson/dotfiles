@@ -1,14 +1,19 @@
 #!/bin/zsh
 
-export GOPATH=~/go
+export EDITOR=nvim
+export VISUAL=vi
+
+set -o vi
+
 export TMPDIR=/tmp
 export TMUX_TMPDIR=~/.tmux_tmp
 
 ssh-add ~/.ssh/id_rsa > /dev/null
 
-export DEFAULT_USER=haydenerickson
 
-export PATH=$PATH:/Users/haydenerickson/miniconda3/bin:/usr/local/bin
+export SPACESHIP_PROMPT_ORDER=( time dir git venv exec_time line_sep vi_mode jobs exit_code char )
+
+export DEFAULT_USER=haydenerickson
 
 tm() {
   if [[ $1 == "rm" ]]; then
@@ -58,11 +63,24 @@ notify() {
   osascript -e "$(echo 'display notification "'$1'"')"
 }
 
+
+
+BACKEND_ROOT=/home/ubuntu/co/backend
+
+
+testPatternForPackage() {
+ go test -list Test $1 | fzf
+}
+
+goTP() {
+  testPattern="^($(testPatternForPackage $1))$" && \
+  ag -U -l "$testPattern" | entr -c -r go test $1 -run "$testPattern"
+}
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-export FUNCTIONS=$(declare -pf)
 

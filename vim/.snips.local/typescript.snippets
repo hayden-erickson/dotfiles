@@ -1,6 +1,22 @@
+snippet log "console.log"
+console.log(${1}${VISUAL})
+endsnippet
+
 snippet desc "jest describe  block"
 describe('${1:something}', () => {
 	${2}${VISUAL}
+})
+endsnippet
+
+snippet bef "jest beforeEach"
+beforeEach(() => {
+	${1}${VISUAL}
+})
+endsnippet
+
+snippet aft "jest afterEach"
+afterEach(() => {
+	${1}${VISUAL}
 })
 endsnippet
 
